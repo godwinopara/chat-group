@@ -48,6 +48,10 @@ const SidebarWrapper = styled.section`
 	border: 1px solid black;
 	padding: 0 27px 0 33px;
 	min-height: 100vh;
+	position: fixed;
+	top: 0;
+	inset: 0;
+	overflow-y: auto;
 `;
 
 const SidebarNav = styled.div`
@@ -55,7 +59,6 @@ const SidebarNav = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	padding: 13px 0;
-	border: 1px solid black;
 	margin-bottom: 20px;
 `;
 
