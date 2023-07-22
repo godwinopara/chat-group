@@ -1,11 +1,9 @@
-import Chatcontent from "./components/Chatcontent";
-import Sidebar from "./components/Sidebar";
+import Layout from "./containers/Layout";
 
 function App() {
 	return (
 		<div>
-			<Sidebar />
-			<Chatcontent />
+			<Layout />
 		</div>
 	);
 }
