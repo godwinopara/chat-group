@@ -6,13 +6,15 @@ const Sidebar = () => {
 		<SidebarWrapper>
 			<SidebarNav>
 				<p>Channel</p>
-				<FaPlus />
+				<div>
+					<FaPlus />
+				</div>
 			</SidebarNav>
 			<SearchBar>
 				<input type="text" name="search" id="search" />
 				<FaSistrix />
 			</SearchBar>
-			<div>
+			<ChannelList>
 				<ul>
 					<List>
 						<span>FE</span>
@@ -35,7 +37,7 @@ const Sidebar = () => {
 						WELCOME
 					</List>
 				</ul>
-			</div>
+			</ChannelList>
 			<div></div>
 		</SidebarWrapper>
 	);
@@ -46,49 +48,75 @@ export default Sidebar;
 const SidebarWrapper = styled.section`
 	width: 25%;
 	border: 1px solid black;
-	padding: 0 27px 0 33px;
 	min-height: 100vh;
 	position: fixed;
 	top: 0;
 	inset: 0;
 	overflow-y: auto;
+	background-color: #120f13;
+	color: #bdbdbd;
 `;
 
 const SidebarNav = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 13px 0;
+	min-height: 59.49px;
 	margin-bottom: 20px;
+	padding: 0 27px 0 33px;
+	background: #0b090c;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+	div {
+		cursor: pointer;
+		border-radius: 8px;
+		background: #252329;
+		height: 24px;
+		width: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 `;
 
 const SearchBar = styled.div`
 	margin-bottom: 35px;
 	position: relative;
+	padding: 0 27px 0 33px;
 
 	input {
 		height: 48px;
 		width: 100%;
-		padding: 12px 12px 12px 35px;
+		padding: 12px 12px 12px 40px;
+		border-radius: 8px;
+		background: #3c393f;
+		color: #bdbdbd;
 	}
 
 	svg {
 		position: absolute;
-		left: 10px;
-		top: 16px;
+		left: 50px;
+		top: 17px;
 		display: flex;
 		align-items: center;
 	}
+`;
+
+const ChannelList = styled.div`
+	padding: 0 27px 0 33px;
 `;
 
 const List = styled.li`
 	margin-bottom: 20px;
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 
 	span {
 		margin-right: 12px;
 		border: 1px solid black;
+		border-radius: 8px;
+		background: #252329;
 		height: 42px;
 		width: 42px;
 		display: flex;

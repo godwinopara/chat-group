@@ -30,12 +30,14 @@ const Chatcontent = ({ scroll }) => {
 export default Chatcontent;
 
 const ChatContentWrapper = styled.section`
-	width: 70%;
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	margin-left: 347px;
 	padding: 0 76px 40px 70px;
+	background: #252329;
+	color: #e0e0e0;
 `;
 
 const ChatContent = styled.div`
@@ -45,9 +47,16 @@ const ChatContent = styled.div`
 const ChatInputWrapper = styled.div`
 	position: fixed;
 	bottom: 0;
-	width: 900px;
+	left: 347px;
+	width: 70%;
 	padding-bottom: 39.42px;
-	background-color: white;
+	background: #252329;
+	padding-left: 70px;
+	input {
+		border-radius: 8px;
+		background: #3c393f;
+		color: #bdbdbd;
+	}
 `;
 
 const ChatInput = styled.div`
@@ -72,16 +81,19 @@ const ChatInput = styled.div`
 `;
 
 const HeadingWrapper = styled.div`
-	padding: 20px 0;
 	position: fixed;
 	top: 0;
-	width: 900px;
-	background-color: white;
+	left: 347px;
+	min-height: 59.49px;
+	width: 100%;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	background: #252329;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
 const Heading = styled.h1`
-	font-weight: 700;
-	font-size: 2rem;
-	position: sticky;
-	top: 0;
+	padding-left: 76px;
+	color: #e0e0e0;
 `;
