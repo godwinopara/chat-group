@@ -79,7 +79,7 @@ const ChatInput = styled.div`
 const HeadingWrapper = styled.div`
 	position: fixed;
 	top: 0;
-	left: 352px;
+	left: 347px;
 	min-height: 59.49px;
 	width: 100%;
 	z-index: 100;

@@ -10,11 +10,11 @@ const Home = () => {
 	});
 
 	return (
-		<Layout>
-			<QueryResult loading={loading} error={error} data={data}>
+		<QueryResult loading={loading} error={error} data={data}>
+			<Layout>
 				<Chatcontent channelName={data?.channel.name} chats={data?.channel.messages} />
-			</QueryResult>
-		</Layout>
+			</Layout>
+		</QueryResult>
 	);
 };
 
