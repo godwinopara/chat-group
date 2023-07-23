@@ -1,10 +1,14 @@
-import Layout from "./containers/Layout";
-
+import ChannelChats from "./pages/ChannelChats";
+import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
 	return (
-		<div>
-			<Layout />
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/channel/:channel" element={<ChannelChats />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 

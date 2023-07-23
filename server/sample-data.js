@@ -22,9 +22,9 @@ export const users = [
 	},
 	{
 		id: 4,
-		name: "Kate Chopin",
+		name: "Karin Chopin",
 		status: "active",
-		email: "katechopin@gmail.com",
+		email: "karinchopin@gmail.com",
 		phone: "080337777333",
 	},
 ];

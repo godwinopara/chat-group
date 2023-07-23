@@ -2,20 +2,16 @@ import { styled } from "styled-components";
 import { VscSend } from "react-icons/vsc";
 import UserChat from "./UserChat";
 
-const Chatcontent = ({ scroll }) => {
+const Chatcontent = ({ channelName, chats }) => {
 	return (
 		<ChatContentWrapper>
 			<HeadingWrapper>
-				<Heading>FRONT-END DEVELOPER</Heading>
+				<Heading>{channelName}</Heading>
 			</HeadingWrapper>
 			<ChatContent>
-				<UserChat />
-				<UserChat />
-				<UserChat />
-				<UserChat />
-				<UserChat />
-				<UserChat />
-				<UserChat />
+				{chats.map((chat, id) => {
+					return <UserChat key={id} chat={chat} />;
+				})}
 			</ChatContent>
 			<ChatInputWrapper>
 				<ChatInput>

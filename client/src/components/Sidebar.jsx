@@ -1,4 +1,5 @@
 import { FaPlus, FaSistrix } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Sidebar = () => {
@@ -17,24 +18,34 @@ const Sidebar = () => {
 			<ChannelList>
 				<ul>
 					<List>
-						<span>FE</span>
-						FRONT-END DEVELOPER
+						<StyledLink to={`/channel/fe`}>
+							<span>FE</span>
+							FRONT-END DEVELOPER
+						</StyledLink>
 					</List>
 					<List>
-						<span>R</span>
-						RANDOM
+						<StyledLink to={`/channel/r`}>
+							<span>R</span>
+							RANDOM
+						</StyledLink>
 					</List>
 					<List>
-						<span>B</span>
-						BACK-END
+						<StyledLink to={`/channel/b`}>
+							<span>B</span>
+							BACK-END
+						</StyledLink>
 					</List>
 					<List>
-						<span>CA</span>
-						CATS AND DOGS
+						<StyledLink to={`/channel/ca`}>
+							<span>CA</span>
+							CATS AND DOGS
+						</StyledLink>
 					</List>
 					<List>
-						<span>W</span>
-						WELCOME
+						<StyledLink to={`/channel/w`}>
+							<span>W</span>
+							WELCOME
+						</StyledLink>
 					</List>
 				</ul>
 			</ChannelList>
@@ -108,8 +119,7 @@ const ChannelList = styled.div`
 
 const List = styled.li`
 	margin-bottom: 20px;
-	display: flex;
-	align-items: center;
+	list-style: none;
 	cursor: pointer;
 
 	span {
@@ -123,4 +133,12 @@ const List = styled.li`
 		align-items: center;
 		justify-content: center;
 	}
+`;
+
+const StyledLink = styled(Link)`
+	display: flex;
+	align-items: center;
+	list-style: none;
+	color: inherit;
+	text-decoration: none;
 `;
