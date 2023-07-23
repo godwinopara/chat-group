@@ -9,7 +9,7 @@ const Chatcontent = ({ channelName, chats }) => {
 				<Heading>{channelName}</Heading>
 			</HeadingWrapper>
 			<ChatContent>
-				{chats.map((chat, id) => {
+				{chats?.map((chat, id) => {
 					return <UserChat key={id} chat={chat} />;
 				})}
 			</ChatContent>
@@ -43,11 +43,11 @@ const ChatContent = styled.div`
 const ChatInputWrapper = styled.div`
 	position: fixed;
 	bottom: 0;
-	left: 347px;
-	width: 70%;
+	left: 352px;
+	width: 72%;
 	padding-bottom: 39.42px;
 	background: #252329;
-	padding-left: 70px;
+	padding-left: 60px;
 	input {
 		border-radius: 8px;
 		background: #3c393f;
@@ -79,7 +79,7 @@ const ChatInput = styled.div`
 const HeadingWrapper = styled.div`
 	position: fixed;
 	top: 0;
-	left: 347px;
+	left: 352px;
 	min-height: 59.49px;
 	width: 100%;
 	z-index: 100;
@@ -90,6 +90,6 @@ const HeadingWrapper = styled.div`
 `;
 
 const Heading = styled.h1`
-	padding-left: 76px;
+	padding-left: 70px;
 	color: #e0e0e0;
 `;

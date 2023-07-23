@@ -1,4 +1,3 @@
-import Chatcontent from "../components/Chatcontent";
 import Sidebar from "../components/Sidebar";
 import styled from "styled-components";
 

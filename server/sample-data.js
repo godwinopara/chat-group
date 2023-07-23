@@ -31,6 +31,7 @@ export const users = [
 
 export const channels = [
 	{
+		id: "4",
 		name: "RANDOM",
 		description: "This channel is for jokes and everything else.",
 		members: [1, 3, 4],
@@ -44,6 +45,7 @@ export const channels = [
 		],
 	},
 	{
+		id: "2",
 		name: "FRONT-END DEVELOPERS",
 		description: "The channel for all frontend developers",
 		members: [1, 3],
@@ -57,6 +59,7 @@ export const channels = [
 		],
 	},
 	{
+		id: "3",
 		name: "BACK-END DEVELOPERS",
 		description: "The channel for all backend developers",
 		members: [1, 3, 2],
@@ -67,10 +70,35 @@ export const channels = [
 				time: "today 11:45am",
 				user: 3,
 			},
+			{
+				content:
+					"adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem ve",
+				time: "today 11:45am",
+				user: 2,
+			},
+			{
+				content:
+					"Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur",
+				time: "today 11:45am",
+				user: 3,
+			},
+			{
+				content:
+					" sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto",
+				time: "today 11:45am",
+				user: 4,
+			},
+			{
+				content:
+					"adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem ve",
+				time: "today 11:45am",
+				user: 4,
+			},
 		],
 	},
 
 	{
+		id: "1",
 		name: "WELCOME",
 		description: "The channel For new member",
 		members: [1, 2, 3, 4],

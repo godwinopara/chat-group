@@ -6,7 +6,7 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/channel/:channel" element={<ChannelChats />} />
+				<Route path="/channel/:channelId" element={<ChannelChats />} />
 			</Routes>
 		</BrowserRouter>
 	);

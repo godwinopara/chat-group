@@ -1,41 +1,19 @@
 import Layout from "../containers/Layout";
 import Chatcontent from "../components/Chatcontent";
+import { useQuery } from "@apollo/client";
+import { GET_CHANNEL } from "../graphql/queries/channelQueries";
 
 const Home = () => {
-	const welcomeMessages = [
-		{
-			content: "glad to be here",
-			time: "today 11:45am",
-			user: {
-				name: "Kate Chopin",
-			},
-		},
-		{
-			content: "feels great to be here",
-			time: "today 11:45am",
-			user: {
-				name: "Kelechi Opara",
-			},
-		},
-		{
-			content: "glad to be here",
-			time: "today 11:45am",
-			user: {
-				name: "Christiana Opara",
-			},
-		},
-		{
-			content: "Can wait to connect",
-			time: "today 11:45am",
-			user: {
-				name: "Karin Chopin",
-			},
-		},
-	];
+	const { loading, error, data } = useQuery(GET_CHANNEL, {
+		variables: { channelId: "1" },
+	});
+
+	if (loading) return <h1>Loading.....</h1>;
+	if (error) return <div>ERROR: {error.message}</div>;
 
 	return (
 		<Layout>
-			<Chatcontent channelName="Welcome" chats={welcomeMessages} />
+			<Chatcontent channelName={data?.channel.name} chats={data?.channel.messages} />
 		</Layout>
 	);
 };

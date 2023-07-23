@@ -4,6 +4,7 @@ import { typeDefs as User } from "./user.js";
 
 export const typeDefs = gql`
 	type Channel {
+		id: ID!
 		name: String!
 		description: String!
 		members: [User!]
@@ -18,14 +19,14 @@ export const typeDefs = gql`
 
 	extend type Query {
 		channels: [Channel!]
-		channel(name: String!): Channel!
+		channel(id: ID!): Channel!
 	}
 `;
 
 export const resolvers = {
 	Query: {
 		channels: () => channels,
-		channel: (_, args) => channels.find((channel) => channel.name === args.name),
+		channel: (_, args) => channels.find((channel) => channel.id === args.id),
 	},
 
 	Channel: {

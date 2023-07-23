@@ -1,8 +1,12 @@
+import { useQuery } from "@apollo/client";
 import { FaPlus, FaSistrix } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { GET_CHANNELS } from "../graphql/queries/channelQueries";
 
 const Sidebar = () => {
+	const { loading, error, data } = useQuery(GET_CHANNELS);
+
 	return (
 		<SidebarWrapper>
 			<SidebarNav>
@@ -17,36 +21,16 @@ const Sidebar = () => {
 			</SearchBar>
 			<ChannelList>
 				<ul>
-					<List>
-						<StyledLink to={`/channel/fe`}>
-							<span>FE</span>
-							FRONT-END DEVELOPER
-						</StyledLink>
-					</List>
-					<List>
-						<StyledLink to={`/channel/r`}>
-							<span>R</span>
-							RANDOM
-						</StyledLink>
-					</List>
-					<List>
-						<StyledLink to={`/channel/b`}>
-							<span>B</span>
-							BACK-END
-						</StyledLink>
-					</List>
-					<List>
-						<StyledLink to={`/channel/ca`}>
-							<span>CA</span>
-							CATS AND DOGS
-						</StyledLink>
-					</List>
-					<List>
-						<StyledLink to={`/channel/w`}>
-							<span>W</span>
-							WELCOME
-						</StyledLink>
-					</List>
+					{data?.channels.map((channel) => {
+						return (
+							<List key={channel.id}>
+								<StyledLink to={`/channel/${channel.id}`}>
+									<span>FE</span>
+									{channel.name}
+								</StyledLink>
+							</List>
+						);
+					})}
 				</ul>
 			</ChannelList>
 			<div></div>
