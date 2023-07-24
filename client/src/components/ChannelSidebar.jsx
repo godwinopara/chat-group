@@ -70,6 +70,8 @@ const SidebarNav = styled.div`
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
+		border: 2px solid #bdbdbd;
+		border-radius: 8px;
 	}
 
 	svg {

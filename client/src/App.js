@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
 	return (
 		<BrowserRouter>
+			{/* Routes */}
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/channel/:channelId" element={<ChannelChats />} />

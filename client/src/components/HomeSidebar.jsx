@@ -3,38 +3,67 @@ import { FaPlus, FaSistrix } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GET_CHANNELS } from "../graphql/queries/channelQueries";
+import AddNewChannel from "../modals/AddNewChannel";
+import { useState } from "react";
 
 const HomeSidebar = ({ onClick }) => {
+	const [showModal, setShowModal] = useState(false);
+	const [channelName, setChannelName] = useState("");
+	const [channelDescription, setChannelDescription] = useState("");
 	const { loading, error, data } = useQuery(GET_CHANNELS);
 
+	const handleShowModal = () => {
+		setShowModal(true);
+	};
+
+	const handleSubmitAddNewChannel = (e) => {
+		e.preventDefault();
+		console.log(channelName, channelDescription);
+		setChannelName("");
+		setChannelDescription("");
+		setShowModal(false);
+	};
+
 	return (
-		<SidebarWrapper>
-			<SidebarNav>
-				<p>Channel</p>
-				<div>
-					<FaPlus />
-				</div>
-			</SidebarNav>
-			<SearchBar>
-				<input type="text" name="search" id="search" />
-				<FaSistrix />
-			</SearchBar>
-			<ChannelList>
-				<ul>
-					{data?.channels.map((channel) => {
-						return (
-							<List key={channel.id} onClick={onClick}>
-								<StyledLink to={`/channel/${channel.id}`}>
-									<span>FE</span>
-									{channel.name}
-								</StyledLink>
-							</List>
-						);
-					})}
-				</ul>
-			</ChannelList>
-			<div></div>
-		</SidebarWrapper>
+		<>
+			{/* MODAL */}
+			<AddNewChannel
+				showModal={showModal}
+				onSubmit={handleSubmitAddNewChannel}
+				channelDescription={channelDescription}
+				channelName={channelName}
+				handleChangeChannelDescription={(e) => setChannelDescription(e.target.value)}
+				handleChangeChannelName={(e) => setChannelName(e.target.value)}
+			/>
+			{/* SIDE NAV */}
+			<SidebarWrapper>
+				<SidebarNav>
+					<p>Channel</p>
+					<div onClick={handleShowModal}>
+						<FaPlus />
+					</div>
+				</SidebarNav>
+				<SearchBar>
+					<input type="text" name="search" id="search" />
+					<FaSistrix />
+				</SearchBar>
+				<ChannelList>
+					<ul>
+						{data?.channels.map((channel) => {
+							return (
+								<List key={channel.id} onClick={onClick}>
+									<StyledLink to={`/channel/${channel.id}`}>
+										<span>FE</span>
+										{channel.name}
+									</StyledLink>
+								</List>
+							);
+						})}
+					</ul>
+				</ChannelList>
+				<div></div>
+			</SidebarWrapper>
+		</>
 	);
 };
 
