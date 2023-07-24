@@ -80,7 +80,7 @@ export const channels = [
 				content:
 					"adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem ve",
 				time: "today 11:45am",
-				user: 2,
+				user: 3,
 			},
 			{
 				content:

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GET_CHANNELS } from "../graphql/queries/channelQueries";
 
-const HomeSidebar = () => {
+const HomeSidebar = ({ onClick }) => {
 	const { loading, error, data } = useQuery(GET_CHANNELS);
 
 	return (
@@ -23,7 +23,7 @@ const HomeSidebar = () => {
 				<ul>
 					{data?.channels.map((channel) => {
 						return (
-							<List key={channel.id}>
+							<List key={channel.id} onClick={onClick}>
 								<StyledLink to={`/channel/${channel.id}`}>
 									<span>FE</span>
 									{channel.name}

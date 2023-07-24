@@ -3,8 +3,9 @@ import { styled } from "styled-components";
 import { GET_CHANNEL } from "../graphql/queries/channelQueries";
 import { useParams } from "react-router-dom";
 import userPlaceholder from "../assets/user-placeholder.jpeg";
+import { VscChevronLeft } from "react-icons/vsc";
 
-const ChannelSidebar = () => {
+const ChannelSidebar = ({ onClick }) => {
 	const { channelId } = useParams();
 	const { loading, error, data } = useQuery(GET_CHANNEL, {
 		variables: { channelId },
@@ -13,7 +14,10 @@ const ChannelSidebar = () => {
 	return (
 		<SidebarWrapper>
 			<SidebarNav>
-				<p>All Channel</p>
+				<div onClick={onClick}>
+					<VscChevronLeft />
+				</div>
+				<h2>All Channel</h2>
 			</SidebarNav>
 			<ChannelDescription>
 				<h2>{data?.channel.name}</h2>
@@ -24,9 +28,9 @@ const ChannelSidebar = () => {
 				<ul>
 					{data?.channel.members.map((member, id) => {
 						return (
-							<ChannelUserWrapper>
+							<ChannelUserWrapper key={id}>
 								<Image src={userPlaceholder} alt="user image placeholder" />
-								<List key={id}>{member.name}</List>
+								<List>{member.name}</List>
 							</ChannelUserWrapper>
 						);
 					})}
@@ -39,7 +43,7 @@ const ChannelSidebar = () => {
 
 export default ChannelSidebar;
 
-const SidebarWrapper = styled.section`
+const SidebarWrapper = styled.nav`
 	width: 25%;
 	border: 1px solid black;
 	min-height: 100vh;
@@ -51,9 +55,8 @@ const SidebarWrapper = styled.section`
 	color: #bdbdbd;
 `;
 
-const SidebarNav = styled.nav`
+const SidebarNav = styled.div`
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	min-height: 59.49px;
 	margin-bottom: 20px;
@@ -62,14 +65,15 @@ const SidebarNav = styled.nav`
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
 	div {
-		cursor: pointer;
-		border-radius: 8px;
-		background: #252329;
-		height: 24px;
-		width: 24px;
+		margin-right: 16px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		cursor: pointer;
+	}
+
+	svg {
+		font-size: 2.4rem;
 	}
 `;
 
